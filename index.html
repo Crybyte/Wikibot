@@ -7,27 +7,29 @@
         <title>Pyscript Demo</title>
 
         <link rel="icon" type="image/png" href="favicon.png" />
+
+        <!-- Pyscript Boilerplate -->
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    </head>
-    <body>
-        <h1>My First Web Page</h1>
-        <p>This is my first web page.</p>
-       
-       <py-config type="json">
-{
-    "packages": [
-        "numpy",
-        "pandas"
-    ],
-    "paths": [
-        "./myscript.py"
-    ]
-}
+
+        <!-- TailwindCSS Boilerplate -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <py-config type="json">
+            {
+                "packages": [
+                    "numpy",
+                    "pandas"
+                ],
+                "paths": [
+                    "./myscript.py"
+                ]
+            }
         </py-config>
-        
-        <h3>Pyscript REPL</h3>
-        <py-repl id="repl-demo" auto-generate="true"></py-repl>
+    </head>
+    <body class="grid place-items-center bg-stone-900 text-gray-100">
+        <h1 class="text-3xl font-bold underline text-red-800">My First Pyscript Web Page</h1>
+        <p>This is my first pyscript demo. Don't clown on me.</p>
         
         <br/>
         <h3>Table</h3>
