@@ -13,11 +13,24 @@
     <body>
         <h1>My First Web Page</h1>
         <p>This is my first web page.</p>
-
-        <py-script>
-from datetime import datetime
-now = datetime.now()
-now.strftime("%m/%d/%Y, %H:%M:%S")
-        </py-script>
+       
+       <py-config type="json">
+{
+    "packages": [
+        "numpy",
+        "pandas"
+    ],
+    "paths": [
+        "./myscript.py"
+    ]
+}
+        </py-config>
+        
+        <h3>Pyscript REPL</h3>
+        <py-repl id="repl-demo" auto-generate="true"></py-repl>
+        
+        <br/>
+        <h3>Table</h3>
+        <py-script src="./myscript.py"></py-script>
     </body>
 </html>
