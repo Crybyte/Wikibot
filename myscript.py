@@ -1,8 +1,7 @@
-import numpy as np
+# display dummy data from pyscript
+
 import pandas as pd
-import warnings
+import numpy as np
 
-warnings.simplefilter(action='ignore', category=FutureWarning)
-
-# Create a visual test for numpy and pandas in pyscript
-pd.util.testing.makeMissingDataframe()
+df = pd.DataFrame(np.random.randn(10, 5))
+df
