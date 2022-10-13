@@ -20,8 +20,14 @@ async def get_summary(slug):
         return f"""
         <h1>No results found 🫠</h1>
         <p>Wikipedia doesn't have an article for <code>{slug}</code></p>"""
+    if summary["type"] == "disambiguation":
+        return f"""
+        <h1>Uhhh 😵‍💫</h1>
+        <h3><i>Wikipedia has multiple articles for <code>{slug}</code></i></h3>
+        <p>Try being more specific...</p>
+        """
     else:
-        output = f"""
-        <h1>{summary["title"]}</h1>
-        <p>{summary["extract_html"]}</p>"""
-        return output
+        return f"""
+        <h1>{summary["title"]}:</h1>
+        <p>{summary["extract_html"]}</p>
+        """

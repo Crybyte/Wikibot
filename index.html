@@ -18,34 +18,35 @@
     <py-config type="json">
         {
             "packages": [
-                "asyncio",
-                "pandas",
-                "matplotlib"
+                "asyncio"
             ],
             "paths": [
-                "./scripts/summer.py"
+                "./scripts/wikibot.py"
             ]
         }
     </py-config>
 
     <!-- Navbar -->
-    <title>Summer 📰</title>
+    <title>Wikibot 🌐</title>
     <link rel="icon" href="favicon.gif" type="image/gif"/>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="display-1 fw-bolder">Summer 📰</h1>
-        <p class="lead">A little knowledge goes a long way.</p>
-        
+        <h1 class="display-1 fw-bolder">Wikibot 🌐</h1>
+        <p class="lead"><i>A little knowledge goes a long way.</i></p>
+        <br>
         <section id="input">
             <py-inputbox id="topic">
             </py-inputbox>
-            <p>What would you like to know about?</p>
+            <br>
+            <small class="text-muted">What would you like to know about?</small>
+            <br>
+            <br>
             <py-button id="submit" label="Summarize" class="mt-2">
                 import asyncio
                 from pyodide.ffi import create_proxy
-                from summer import get_summary
+                from wikibot import get_summary
 
                 @create_proxy
                 async def on_click(evt):
@@ -57,16 +58,32 @@
         </section>
         
         <section id="summary" class="mt-4">
-            <h6>Enter a keyword or a topic in the field above and let Summer 📰 retrieve a summary from Wikipedia</h6>
+            <h6>Enter a keyword or a topic in the field above and let Wikibot 🌐 retrieve a summary from Wikipedia</h6>
         </section>
-        
+        <br>
         <button id="copy" class="btn btn-warning">
-            Copy to 📋 Clipboard
+            📋 Copy to clipboard
         </button>
-        
-        <h4 class="mt-4">🚧 Dummy Data 🚧</h4>
-        <py-script src="./myscript.py"></py-script>
+
+        <script>
+            document.getElementById("topic").focus()
     
+            function copySummary(){
+                let summaryText = document.getElementById("summary").innerText
+    
+                navigator.clipboard.writeText(summaryText).then(function(){
+                    console.log("Text copied to clipboard")
+                }, 
+                    function(err){
+                        console.log("Unable to copy text: " + err)
+                    }
+                )
+            }
+    
+            let copyButton = document.getElementById("copy");
+            copyButton.addEventListener("click", copySummary);
+    
+        </script>
     </div>
 
 </body>
